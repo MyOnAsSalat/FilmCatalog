@@ -1,0 +1,32 @@
+﻿@model IEnumerable<JobTest.Models.Film>
+@{
+    ViewBag.Title = "My films";
+}
+
+<h2>My films</h2>
+
+<p>
+    @Html.ActionLink("Добавить изображение", "Create")
+</p>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Year</th>
+    </tr>
+    @{
+        if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Year)
+                    </td>
+                </tr>
+            }
+        }
+    }
+</table>
