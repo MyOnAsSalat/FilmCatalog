@@ -22,7 +22,7 @@
             {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Title)
+            <a href="home/film?filmid=@item.FilmId">@Html.DisplayFor(modelItem => item.Title)</a>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Year)

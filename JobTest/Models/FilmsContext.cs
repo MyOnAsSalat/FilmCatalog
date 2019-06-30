@@ -18,7 +18,8 @@ namespace JobTest.Models
         [Required]
         [MaxLength(256)]
         public string Title { get; set; }
-        [MaxLength(1000)]
+        [MaxLength(10000)]
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
         [Required]
         public int Year { get; set; }

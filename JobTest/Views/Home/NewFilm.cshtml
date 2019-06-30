@@ -1,45 +1,52 @@
 ﻿@model JobTest.Models.Film
- 
+
 @{
     ViewBag.Title = "New film";
 }
- 
-@using (Html.BeginForm("AddFilm", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.ValidationSummary(true)
-    <fieldset>
+<div class="row">
+    @using (Html.BeginForm("AddFilm", "Home", FormMethod.Post, new { enctype = "multipart/form-data"}))
+    {
+        @Html.ValidationSummary(true)
         <legend>Add new film</legend>
- 
-        <div class="editor-label">Название</div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Title)
+
+        <fieldset>
+            <div class="editor-label">Title</div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new {@style = "width:50% " } })
+            </div>
             @Html.ValidationMessageFor(model => model.Title)
             <div class="editor-label">Producer</div>
-            @Html.EditorFor(model => model.Producer)
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Producer, new { htmlAttributes = new { @style = "width:50% " } })
+            </div>
             @Html.ValidationMessageFor(model => model.Producer)
             <div class="editor-label">Year</div>
-            @Html.EditorFor(model => model.Year)
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Year)
+            </div>
             @Html.ValidationMessageFor(model => model.Year)
             <div class="editor-label">Description</div>
-            <div class="">@Html.TextAreaFor(model => model.Description, 6, 100, null)</div> 
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @style = "width:100% " } })
+            </div>
             @Html.ValidationMessageFor(model => model.Description)
-        </div>
- 
-        <div class="editor-label">Add poster</div>
-        <div class="editor-field">
-            <input type="file" name="image"  accept="image/png"/>
-        </div>
- 
-        <p>
-            <input type="submit" value="Post" />
-        </p>
-    </fieldset>
-}
- 
+
+
+            <div class="editor-label">Add poster</div>
+            <div class="editor-field">
+                <input type="file" name="image" accept="image/png" />
+            </div>
+
+            <p>
+                <input type="submit" value="Post" />
+            </p>
+        </fieldset>
+    }
+</div>
 <div>
     @Html.ActionLink("Back to list of films", "Index")
 </div>
- 
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
