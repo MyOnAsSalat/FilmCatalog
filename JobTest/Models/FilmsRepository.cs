@@ -15,6 +15,20 @@ namespace JobTest.Models
             }
         }
 
+        public async Task<int> GetFilmsCountAsync()
+        {
+            using (var context = new FilmsContext())
+            {
+                return await context.Films.CountAsync();
+            }
+        }
+        public async Task<List<Film>> GetFilmsByIndex(int index,int count)
+        {
+            using (var context = new FilmsContext())
+            {
+                return await context.Films.OrderBy(f=>f.FilmId).Skip(index).Take(count).ToListAsync();
+            }
+        }
         public async Task<List<Film>> GetFilmsByUserAsync(string user)
         {
             using (var context = new FilmsContext())

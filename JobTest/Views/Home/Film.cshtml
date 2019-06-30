@@ -1,0 +1,10 @@
+﻿@model JobTest.Models.Film
+@{
+    ViewBag.Title = "Film";
+}
+<h2>Film</h2>
+<img src="/home/Poster?filmid=@Model.FilmId">
+<h3>@Model.Title</h3>
+<h4>Producer: @Model.Producer</h4>
+<h4>Year: @Model.Year</h4>
+<h4>@Model.Description</h4>
