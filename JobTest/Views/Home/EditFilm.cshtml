@@ -3,41 +3,47 @@
 @{
     ViewBag.Title = "Edit film";
 }
+<legend>Add new film</legend>
+<div class="row">
+    @using (Html.BeginForm("SaveFilm", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.ValidationSummary(true)
 
-@using (Html.BeginForm("SaveFilm", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.ValidationSummary(true)
-<fieldset>
-    <legend>Edit film</legend>
-    <input type="hidden" name="UserFilmId" size="40"
-           value="@ViewBag.UserFilmId"
-           readonly>
-    <div class="editor-label">Title</div>
-    <div class="editor-field">
-        @Html.EditorFor(model => model.Title)
-        @Html.ValidationMessageFor(model => model.Title)
-        <div class="editor-label">Producer</div>
-        @Html.EditorFor(model => model.Producer)
-        @Html.ValidationMessageFor(model => model.Producer)
-        <div class="editor-label">Year</div>
-        @Html.EditorFor(model => model.Year)
-        @Html.ValidationMessageFor(model => model.Year)
-        <div class="editor-label">Description</div>
-        <div class="">@Html.TextAreaFor(model => model.Description, 6, 100, null)</div> 
-        @Html.ValidationMessageFor(model => model.Description)
-        
-    </div>
 
-    <div class="editor-label">New poster</div>
-    <div class="editor-field">
-        <input type="file" name="image" accept="image/png" />
-    </div>
+        <fieldset>
+            <div class="editor-label">Title</div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @style = "width:50% " } })
+            </div>
+            @Html.ValidationMessageFor(model => model.Title)
+            <div class="editor-label">Producer</div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Producer, new { htmlAttributes = new { @style = "width:50% " } })
+            </div>
+            @Html.ValidationMessageFor(model => model.Producer)
+            <div class="editor-label">Year</div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Year)
+            </div>
+            @Html.ValidationMessageFor(model => model.Year)
+            <div class="editor-label">Description</div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @style = "width:100% " } })
+            </div>
+            @Html.ValidationMessageFor(model => model.Description)
 
-    <p>
-        <input type="submit" value="Post" />
-    </p>
-</fieldset>
-}
+
+            <div class="editor-label">Add new poster or skip to save previous</div>
+            <div class="editor-field">
+                <input type="file" name="image" accept="image/png" />
+            </div>
+
+            <p>
+                <input type="submit" value="Post" />
+            </p>
+        </fieldset>
+    }
+</div>
 <div>
     @Html.ActionLink("Back to list of films", "Index")
 </div>

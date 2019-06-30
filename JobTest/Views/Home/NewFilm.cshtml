@@ -3,11 +3,12 @@
 @{
     ViewBag.Title = "New film";
 }
+<legend>Add new film</legend>
 <div class="row">
     @using (Html.BeginForm("AddFilm", "Home", FormMethod.Post, new { enctype = "multipart/form-data"}))
     {
         @Html.ValidationSummary(true)
-        <legend>Add new film</legend>
+        
 
         <fieldset>
             <div class="editor-label">Title</div>
