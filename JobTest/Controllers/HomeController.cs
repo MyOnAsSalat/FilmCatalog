@@ -45,7 +45,7 @@ namespace JobTest.Controllers
         [Authorize]
         public async Task<ActionResult> SaveFilm(int? UserFilmId, Film film, HttpPostedFileBase image)
         {
-            if (UserFilmId == null) RedirectToAction("UserFilms");
+            if (UserFilmId == null) return RedirectToAction("UserFilms");
             var filmById = await films.ReadFilmOrDefaultAsync((int) UserFilmId);
             if (filmById == null) return RedirectToAction("UserFilms");
             if (User.Identity.GetUserId() != filmById.User)

@@ -54,7 +54,7 @@ namespace JobTest.Repositories
 
         public async Task<Film> ReadFilmOrDefaultAsync(int Id)
         {
-            Film result;
+            Film result = null;
             using (var context = new FilmsContext())
             {
                 result = await context.Films.FirstOrDefaultAsync(f => f.FilmId == Id);

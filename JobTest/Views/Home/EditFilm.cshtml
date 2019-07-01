@@ -11,6 +11,9 @@
 
 
         <fieldset>
+            <input type="hidden" name="UserFilmId" size="40"
+                   value="@ViewBag.UserFilmId"
+                   readonly>
             <div class="editor-label">Title</div>
             <div class="editor-field">
                 @Html.EditorFor(model => model.Title, new {htmlAttributes = new {style = "width:50% "}})
