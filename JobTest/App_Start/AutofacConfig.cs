@@ -1,7 +1,6 @@
-﻿using Autofac;
-using Autofac.Core;
+﻿using System.Web.Mvc;
+using Autofac;
 using Autofac.Integration.Mvc;
-using System.Web.Mvc;
 using JobTest;
 using JobTest.Repositories;
 

@@ -16,35 +16,35 @@
     </tr>
     @{
         foreach (var item in Model)
-            {
-                <tr onclick="window.location.href='/home/film?filmid=@item.FilmId'; return false">
-                    <td>
-                        <a href="home/film?filmid=@item.FilmId">@Html.DisplayFor(modelItem => item.Title)</a>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Year)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Producer)
-                    </td>
-                </tr>
-            }
-        
+        {
+            <tr onclick="window.location.href = '/home/film?filmid=@item.FilmId';return false;">
+                <td>
+                    <a href="home/film?filmid=@item.FilmId">@Html.DisplayFor(modelItem => item.Title)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Producer)
+                </td>
+            </tr>
+        }
+
         int filmsCount = ViewBag.FilmsCount;
         int index = ViewBag.Index;
         int count = ViewBag.Count;
     }
 </table>
 <section class="pagination">
-    @for (int i = 0; i < filmsCount; i += count)
-         {
-             if (i != index)
-             {
-                 <a href="/home/index?index=@i&count=@count">@(i + 1)-@(i + count)</a>
-             }
-             else
-             {
-                 <b>@(i + 1)-@(i + count)</b>
-             }
-         }
+    @for (var i = 0; i < filmsCount; i += count)
+    {
+        if (i != index)
+        {
+            <a href="/home/index?index=@i&count=@count">@(i + 1)-@(i + count)</a>
+        }
+        else
+        {
+            <b>@(i + 1)-@(i + count)</b>
+        }
+    }
 </section>

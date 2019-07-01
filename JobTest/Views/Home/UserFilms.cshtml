@@ -20,20 +20,20 @@
         {
             foreach (var item in Model)
             {
-    <tr>
-        <td>
-            <a href="/home/film?filmid=@item.FilmId">@Html.DisplayFor(modelItem => item.Title)</a>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Year)
-        </td>
-        <td>
-            <a href="/home/EditFIlm?filmid=@item.FilmId">Edit</a>
-        </td>
-        <td>
-            <a href="/home/DeleteFilm?filmid=@item.FilmId">Delete</a>
-        </td>
-    </tr>
+                <tr>
+                    <td>
+                        <a href="/home/film?filmid=@item.FilmId">@Html.DisplayFor(modelItem => item.Title)</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Year)
+                    </td>
+                    <td>
+                        <a href="/home/EditFIlm?filmid=@item.FilmId">Edit</a>
+                    </td>
+                    <td>
+                        <a href="/home/DeleteFilm?filmid=@item.FilmId">Delete</a>
+                    </td>
+                </tr>
             }
         }
     }

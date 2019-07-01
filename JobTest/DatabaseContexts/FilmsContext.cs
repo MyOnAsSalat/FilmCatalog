@@ -1,5 +1,6 @@
 using System.Data.Entity;
 using JobTest.Models;
+
 namespace JobTest.DatabaseContexts
 {
     public class FilmsContext : DbContext

@@ -1,7 +1,9 @@
-﻿using Microsoft.Owin;
+﻿using JobTest;
+using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(JobTest.Startup))]
+[assembly: OwinStartupAttribute(typeof(Startup))]
+
 namespace JobTest
 {
     public partial class Startup

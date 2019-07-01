@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using JobTest.DatabaseContexts;
@@ -9,14 +8,14 @@ namespace JobTest.Repositories
 {
     public class FilmsRepository : IFilmsRepository
     {
-        
         public async Task<Film[]> ReadFilmsAsync()
         {
             var result = new Film[0];
             using (var context = new FilmsContext())
             {
-               result = await context.Films.ToArrayAsync();
+                result = await context.Films.ToArrayAsync();
             }
+
             return result;
         }
 
@@ -27,17 +26,21 @@ namespace JobTest.Repositories
             {
                 result = await context.Films.CountAsync();
             }
+
             return result;
         }
-        public async Task<Film[]> ReadFilmsByIndex(int index,int count)
+
+        public async Task<Film[]> ReadFilmsByIndex(int index, int count)
         {
             Film[] result;
             using (var context = new FilmsContext())
             {
-                result = await context.Films.OrderBy(f=>f.FilmId).Skip(index).Take(count).ToArrayAsync();
+                result = await context.Films.OrderBy(f => f.FilmId).Skip(index).Take(count).ToArrayAsync();
             }
+
             return result;
         }
+
         public async Task<Film[]> ReadFilmsByUserAsync(string user)
         {
             Film[] result;
@@ -45,6 +48,7 @@ namespace JobTest.Repositories
             {
                 result = await context.Films.Where(f => f.User == user).ToArrayAsync();
             }
+
             return result;
         }
 
@@ -55,6 +59,7 @@ namespace JobTest.Repositories
             {
                 result = await context.Films.FirstOrDefaultAsync(f => f.FilmId == Id);
             }
+
             return result;
         }
 
